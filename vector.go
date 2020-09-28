@@ -6,7 +6,7 @@ import (
 
 type Vector []float64
 
-var ErrVectorSize = errors.New("not compatible with vectors of different dimension")
+var errVectorSize = errors.New("not compatible with vectors of different dimension")
 
 func min(x, y int) int {
 	if x < y {
@@ -18,7 +18,7 @@ func min(x, y int) int {
 
 func (a Vector) Add(b Vector) (*Vector, error) {
 	if len(a) != len(b) {
-		return nil, ErrVectorSize
+		return nil, errVectorSize
 	}
 
 	result := make(Vector, len(a))
@@ -32,7 +32,7 @@ func (a Vector) Add(b Vector) (*Vector, error) {
 
 func (a Vector) Sub(b Vector) (*Vector, error) {
 	if len(a) != len(b) {
-		return nil, ErrVectorSize
+		return nil, errVectorSize
 	}
 
 	result := make(Vector, len(a))
