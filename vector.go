@@ -16,30 +16,40 @@ func min(x, y int) int {
 	return y
 }
 
-func (a Vector) Add(b Vector) (*Vector, error) {
-	if len(a) != len(b) {
+func (v Vector) Add(w Vector) (*Vector, error) {
+	if len(v) != len(w) {
 		return nil, errVectorSize
 	}
 
-	result := make(Vector, len(a))
+	result := make(Vector, len(v))
 
-	for i := 0; i < len(a); i++ {
-		result[i] = a[i] + b[i]
+	for i := 0; i < len(v); i++ {
+		result[i] = v[i] + w[i]
 	}
 
 	return &result, nil
 }
 
-func (a Vector) Sub(b Vector) (*Vector, error) {
-	if len(a) != len(b) {
+func (v Vector) Sub(w Vector) (*Vector, error) {
+	if len(v) != len(w) {
 		return nil, errVectorSize
 	}
 
-	result := make(Vector, len(a))
+	result := make(Vector, len(v))
 
-	for i := 0; i < len(a); i++ {
-		result[i] = a[i] - b[i]
+	for i := 0; i < len(v); i++ {
+		result[i] = v[i] - w[i]
 	}
 
 	return &result, nil
+}
+
+func (v Vector) MultiByScalar(s float64) *Vector {
+	result := make(Vector, len(v))
+
+	for i, val := range v {
+		result[i] = val * s
+	}
+
+	return &result
 }
