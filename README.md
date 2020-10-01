@@ -1,5 +1,5 @@
 # govector
-implementation of a n - dimensional mathematical vector in go
+implementation of a n-dimensional mathematical vector in go
 
 # Available operations
 1. Adding two vectors
